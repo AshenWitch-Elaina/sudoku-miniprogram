@@ -1,0 +1,57 @@
+<!-- pages/profile/profile.wxml -->
+<view class="container">
+  <!-- 用户信息卡片 -->
+  <view class="user-card" wx:if="{{userInfo.nickName}}">
+    <image class="avatar" src="{{userInfo.avatarUrl}}" mode="aspectFill"></image>
+    <view class="user-info">
+      <text class="nickname">{{userInfo.nickName}}</text>
+      <text class="openid">ID: {{openidShort}}</text>
+    </view>
+  </view>
+  <button wx:else class="login-btn" bindtap="getUserProfile">微信用户一键登录</button>
+
+  <!-- 统计卡片（三列） -->
+  <view class="stats-row">
+    <view class="stat-item">
+      <text class="stat-value">{{stats.totalGames}}</text>
+      <text class="stat-label">总对局</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-value">{{stats.totalWins}}</text>
+      <text class="stat-label">完成</text>
+    </view>
+    <view class="stat-item">
+      <text class="stat-value">{{stats.winRate}}%</text>
+      <text class="stat-label">完成率</text>
+    </view>
+  </view>
+
+  <!-- 最佳成绩卡片 -->
+  <view class="section-header">
+    <text class="section-title">最佳成绩</text>
+  </view>
+  <view class="best-list">
+    <view class="best-item" wx:for="{{difficultyMap}}" wx:key="index">
+      <text class="difficulty">{{item.name}}</text>
+      <text class="best-time">{{stats.bestTimes[item.value] || '--:--'}}</text>
+    </view>
+  </view>
+
+  <!-- 最近战绩卡片 -->
+  <view class="section-header">
+    <text class="section-title">最近战绩</text>
+  </view>
+  <view class="history-list">
+    <view class="history-item" wx:for="{{history}}" wx:key="index" wx:for-item="record">
+      <view class="history-left">
+        <text class="history-difficulty">{{record.difficultyName}}</text>
+        <text class="history-time">{{record.createTime}}</text>
+      </view>
+      <view class="history-right">
+        <text class="history-duration">{{record.formattedTime}}</text>
+        <text class="history-result {{record.isWin ? 'win' : 'lose'}}">{{record.isWin ? '完成' : '未完成'}}</text>
+      </view>
+    </view>
+    <view class="empty-tip" wx:if="{{history.length === 0}}">暂无历史记录</view>
+  </view>
+</view>

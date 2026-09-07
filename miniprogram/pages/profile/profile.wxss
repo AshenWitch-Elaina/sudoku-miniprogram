@@ -1,0 +1,240 @@
+/* pages/profile/profile.wxss */
+page {
+  background-color: #f8f9fc;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+.container {
+  padding: 20rpx 24rpx 40rpx;
+}
+
+/* 用户卡片 */
+.user-card {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  background: #ffffff;
+  border-radius: 32rpx;
+  padding: 32rpx 28rpx;
+  margin-bottom: 24rpx;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.02);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.avatar {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 60rpx;
+  margin-right: 28rpx;
+  box-shadow: 0 8rpx 24rpx rgba(0, 0, 0, 0.04);
+}
+
+.user-info {
+  margin-left: 20rpx;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.nickname {
+  font-size: 40rpx;
+  font-weight: 600;
+  color: #1d1d1f;
+  line-height: 1.3;
+  margin-bottom: 6rpx;
+}
+
+.openid {
+  width: 100%;
+  margin-top: 10rpx;
+  font-size: 26rpx;
+  color: #86868b;
+  letter-spacing: 0.3rpx;
+}
+
+.login-btn {
+  background: #007aff;
+  color: white;
+  border-radius: 60rpx;
+  font-size: 32rpx;
+  font-weight: 500;
+  margin: 60rpx 0;
+  padding: 28rpx 0;
+  box-shadow: 0 8rpx 24rpx rgba(0, 122, 255, 0.2);
+  border: none;
+}
+
+.login-btn::after {
+  border: none;
+}
+
+/* 统计行（三列卡片） */
+.stats-row {
+  width: 92%;
+  margin-left: auto;
+  margin-right: auto;
+  background: #ffffff;
+  border-radius: 32rpx;
+  padding: 32rpx 20rpx;
+  margin-bottom: 32rpx;
+  display: flex;
+  justify-content: space-around;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.02);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.stat-value {
+  font-size: 56rpx;
+  font-weight: 600;
+  color: #1d1d1f;
+  line-height: 1.2;
+  margin-bottom: 8rpx;
+}
+
+.stat-label {
+  font-size: 26rpx;
+  color: #86868b;
+  font-weight: 400;
+  letter-spacing: 0.2rpx;
+}
+
+/* 区块标题 */
+.section-header {
+  padding: 0 8rpx 16rpx;
+}
+
+.section-title {
+  font-size: 34rpx;
+  font-weight: 600;
+  color: #1d1d1f;
+  letter-spacing: 2rpx;
+}
+
+/* 最佳成绩卡片 */
+.best-list {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  background: #ffffff;
+  border-radius: 32rpx;
+  padding: 16rpx 28rpx;
+  margin-bottom: 32rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.02);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.best-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24rpx 0;
+  border-bottom: 1rpx solid #e9ecf3;
+}
+
+.best-item:last-child {
+  border-bottom: none;
+}
+
+.difficulty {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #1d1d1f;
+}
+
+.best-time {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #007aff;
+}
+
+/* 最近战绩卡片 */
+.history-list {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  background: #ffffff;
+  border-radius: 32rpx;
+  padding: 0 28rpx;
+  margin-bottom: 30rpx;
+  box-shadow: 0 4rpx 20rpx rgba(0, 0, 0, 0.02);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28rpx 0;
+  border-bottom: 1rpx solid #e9ecf3;
+}
+
+.history-item:last-child {
+  border-bottom: none;
+}
+
+.history-left {
+  display: flex;
+  flex-direction: column;
+}
+
+.history-difficulty {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #1d1d1f;
+  margin-bottom: 6rpx;
+}
+
+.history-time {
+  font-size: 24rpx;
+  color: #86868b;
+}
+
+.history-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.history-duration {
+  font-size: 32rpx;
+  font-weight: 500;
+  color: #1d1d1f;
+  margin-bottom: 6rpx;
+}
+
+.history-result {
+  font-size: 24rpx;
+  padding: 6rpx 20rpx;
+  border-radius: 24rpx;
+  font-weight: 500;
+}
+
+.history-result.win {
+  background: #e3f7e9;
+  color: #2d6a4f;
+}
+
+.history-result.lose {
+  background: #fee9e7;
+  color: #b91c1c;
+}
+
+.empty-tip {
+  text-align: center;
+  color: #a1a1a6;
+  font-size: 28rpx;
+  padding: 60rpx 0;
+}

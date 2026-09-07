@@ -1,0 +1,3 @@
+<view class="sudoku-page">
+  <sudoku difficulty="{{difficulty}}" bind:gamecomplete="onGameComplete"></sudoku>
+</view>

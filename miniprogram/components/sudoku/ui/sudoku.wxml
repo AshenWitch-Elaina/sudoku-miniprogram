@@ -1,0 +1,73 @@
+<!-- components/sudoku/ui/sudoku.wxml -->
+<view class="sudoku-component">
+  <!-- 顶部信息栏 -->
+  <view class="header-module">
+    <view class="difficulty-badge">
+      <text>{{difficultyName}}</text>
+    </view>
+    <view class="timer">
+      <text>{{formattedTime}}</text>
+    </view>
+    <view class="pause-btn" bindtap="togglePause">
+      <text wx:if="{{!paused}}">⏸️</text>
+      <text wx:else>▶️</text>
+    </view>
+  </view>
+
+  <!-- 数独网格 -->
+  <view class="grid-module">
+    <view class="sudoku-grid">
+      <block wx:for="{{grid}}" wx:for-index="row" wx:for-item="rowData" wx:key="row">
+        <view class="grid-row">
+          <block wx:for="{{rowData}}" wx:for-index="col" wx:for-item="cell" wx:key="col">
+            <view class="grid-cell {{cellClasses[row][col]}} {{selectedRow===row && selectedCol===col ? 'selected' : ''}} {{isSameNumber(row, col) ? 'same-number' : ''}}"
+      data-row="{{row}}"
+      data-col="{{col}}"
+      bindtap="onCellTap">
+              <text wx:if="{{grid[row][col] !== 0}}">{{grid[row][col]}}</text>
+              <view wx:else class="candidate-area">
+                <wxs src="./sudoku.wxs" module="util" />
+                <block wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:for-item="num" wx:key="*this">
+                  <text wx:if="{{util.contains(candidates[row][col], num)}}" class="candidate-num">{{num}}</text>
+                  <text wx:else class="candidate-placeholder"></text>
+                </block>
+              </view>
+            </view>
+          </block>
+        </view>
+      </block>
+    </view>
+  </view>
+
+  <!-- 数字键盘 -->
+  <view class="keyboard-module">
+    <view class="number-panel">
+      <block wx:for="{{[1,2,3,4,5,6,7,8,9]}}" wx:key="n">
+        <button 
+          class="number-btn" 
+          data-num="{{item}}"
+          bindtap="onNumberTap"
+          hover-class="btn-hover"
+        >{{item}}</button>
+      </block>
+    </view>
+  </view>
+
+  <!-- 工具按钮 -->
+  <view class="tools-module">
+    <button class="tool-btn erase-btn" bindtap="eraseCell" hover-class="btn-hover">
+      <text>⌫ 擦除</text>
+    </button>
+    <button class="tool-btn note-btn {{noteMode ? 'active' : ''}}" bindtap="toggleNoteMode" hover-class="btn-hover">
+      <text wx:if="{{!noteMode}}">✏️ 笔记</text>
+      <text wx:else>🔢 数字</text>
+    </button>
+    <button class="tool-btn hint-btn" bindtap="getHint" hover-class="btn-hover">
+      <text>💡 提示</text>
+    </button>
+    <!-- 新增新局按钮 -->
+    <button class="tool-btn reset-btn" bindtap="resetGame" hover-class="btn-hover">
+      <text>🔄 新局</text>
+    </button>
+  </view>
+</view>

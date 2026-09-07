@@ -1,0 +1,10 @@
+// components/sudoku/ui/sudoku.wxs
+function contains(arr, num) {
+  if (!arr) return false;
+  // 将数组转为字符串 ",1,3," 形式，判断 ",num," 是否存在
+  var str = ',' + arr.join(',') + ',';
+  return str.indexOf(',' + num + ',') > -1;
+}
+module.exports = {
+  contains: contains
+};

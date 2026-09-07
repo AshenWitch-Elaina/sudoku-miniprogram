@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "sudoku": "/components/sudoku/ui/sudoku"
+  }
+}

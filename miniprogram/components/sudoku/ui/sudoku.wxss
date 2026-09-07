@@ -1,0 +1,233 @@
+/* components/sudoku/ui/sudoku.wxss */
+.sudoku-component {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background: #f8f9fc;
+  padding: 20rpx 30rpx 30rpx;
+  box-sizing: border-box;
+}
+
+.header-module {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 10rpx 30rpx;
+}
+
+.difficulty-badge {
+  background: #e9ecf3;
+  padding: 12rpx 28rpx;
+  border-radius: 50rpx;
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #2c3e50;
+}
+
+.timer {
+  font-size: 40rpx;
+  font-weight: 500;
+  color: #1e293b;
+  background: #ffffff;
+  padding: 8rpx 30rpx;
+  border-radius: 50rpx;
+  box-shadow: 0 4rpx 12rpx rgba(0,0,0,0.02);
+}
+
+.pause-btn {
+  width: 80rpx;
+  height: 80rpx;
+  background: #ffffff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 48rpx;
+  color: #3b4a5c;
+}
+
+.grid-module {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20rpx 0 30rpx;
+}
+
+.sudoku-grid {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #ffffff;
+  /* border-radius: 30rpx; */
+  box-shadow: 0 20rpx 40rpx rgba(0,20,40,0.08);
+  padding: 10rpx;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.grid-row {
+  display: flex;
+  flex: 1;
+}
+
+.grid-cell {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40rpx;
+  font-weight: 500;
+  color: #1e293b;
+  border: 1px solid #dee2e9;
+  position: relative;
+  transition: background 0.1s;
+}
+
+.grid-row:nth-child(3) .grid-cell,
+.grid-row:nth-child(6) .grid-cell {
+  border-bottom-width: 3px;
+  border-bottom-color: #a0aec0;
+}
+
+.grid-cell:nth-child(3),
+.grid-cell:nth-child(6) {
+  border-right-width: 3px;
+  border-right-color: #a0aec0;
+}
+
+.grid-cell.fixed {
+  color: #03325c;
+  font-weight: 600;
+}
+
+.grid-cell.user-filled {
+  color: #50adf9;
+}
+
+.grid-cell.selected {
+  background: #e1f0fa !important;
+  border-color: #3498db;
+}
+
+.grid-cell.same-number {
+  background: #fdedd3;
+}
+
+/* 候选数区域 */
+.candidate-num {
+  color: #e67e22;          /* 柔和的橙色 */
+  font-size: 17rpx;
+  font-weight: 500;
+  width: 33.33%;
+  height: 33.33%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.candidate-area {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  height: 100%;
+  padding: 4rpx;
+  box-sizing: border-box;
+}
+
+.candidate-placeholder {
+  width: 33.33%;
+  height: 33.33%;
+}
+
+/* 数字键盘模块 */
+.keyboard-module {
+  margin: 10rpx 0 0;
+  width: 100%;
+}
+
+.number-panel {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25rpx;
+  justify-content: center;
+  padding: 0 10rpx;
+  box-sizing: border-box;
+  margin-bottom: 10rpx;
+}
+
+.number-btn {
+  aspect-ratio: 8 / 6;
+  width: 100%;
+  max-width: 140rpx;
+  justify-self: center;
+  font-size: 44rpx;
+  border-radius: 24rpx;
+  background: #ffffff;
+  box-shadow: 0 4rpx 10rpx rgba(0,0,0,0.03);
+  font-weight: 500;
+  color: #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 1px solid #e2e8f0;
+  transition: all 0.1s;
+  box-sizing: border-box;
+}
+
+.number-btn::after {
+  border: none;
+}
+
+.btn-hover {
+  opacity: 0.7;
+  transform: scale(0.96);
+}
+
+.tools-module {
+  display: flex;
+  justify-content: space-around;
+  gap: 20rpx;
+  margin-top: 10rpx;
+}
+
+.tool-btn {
+  flex: 1;
+  background: #ffffff;
+  border-radius: 50rpx;
+  padding: 24rpx 0;
+  font-size: 30rpx;
+  font-weight: 500;
+  color: #2c3e50;
+  box-shadow: 0 8rpx 16rpx rgba(0,0,0,0.02);
+  border: 1px solid #e9ecf3;
+  transition: all 0.1s;
+}
+
+.tool-btn::after {
+  border: none;
+}
+
+.note-btn.active {
+  background: #d4e6f1;
+  border-color: #3498db;
+  color: #0b5e7c;
+}
+
+.erase-btn {
+  color: #b91c1c;
+}
+
+.note-btn {
+  color: #0b5e7c;
+}
+
+.hint-btn {
+  color: #a47148;
+}
+
+.reset-btn {
+  color: #8e44ad; /* 紫色，区别于其他按钮 */
+}

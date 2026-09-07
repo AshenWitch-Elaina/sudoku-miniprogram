@@ -1,0 +1,39 @@
+<!-- pages/rank/rank.wxml -->
+<view class="container">
+  <!-- 难度筛选卡片 -->
+  <view class="filter-card">
+    <picker bindchange="onDifficultyChange" value="{{difficultyIndex}}" range="{{difficulties}}">
+      <view class="picker-display">
+        <text>{{difficulties[difficultyIndex]}}</text>
+        <text class="chevron">▼</text>
+      </view>
+    </picker>
+  </view>
+
+  <!-- 排行榜卡片 -->
+  <view class="rank-card">
+    <!-- 表头 -->
+    <view class="rank-header">
+      <text class="rank-col rank">排名</text>
+      <text class="rank-col user">用户</text>
+      <text class="rank-col time">最佳</text>
+      <text class="rank-col count">次数</text>
+    </view>
+
+    <!-- 列表项 -->
+    <view class="rank-item" wx:for="{{rankList}}" wx:key="openid">
+      <text class="rank-col rank">{{item.rank}}</text>
+      <view class="rank-col user">
+        <image class="avatar" src="{{item.avatarUrl}}" mode="aspectFill"></image>
+        <text class="nickname">{{item.nickName}}</text>
+      </view>
+      <text class="rank-col time">{{item.formattedTime}}</text>
+      <text class="rank-col count">{{item.count}}</text>
+    </view>
+
+    <!-- 空状态提示 -->
+    <view class="empty-tip" wx:if="{{rankList.length === 0}}">
+      暂无数据，快去创造记录吧！
+    </view>
+  </view>
+</view>
